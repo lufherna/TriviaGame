@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 	//function that'll start the program and initialize the start screen
 	function startScreen() {
-		startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' n\
+		startScreen = "<p class='startButton text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' n\
 		href='#' role='button'>Start Quiz</a></p>";
 	$(".mainArea").html(startScreen);
 }
@@ -31,8 +31,9 @@ $(document).ready(function(){
 			incorrect: "Kandor"
 			}
 
-		
-
+			console.log("just checking if this is working")
 	})
+
+
 
 })
