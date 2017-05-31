@@ -1,0 +1,17 @@
+body {
+
+	background-image: url("../images/heroes.jpg");
+}
+
+.intro {
+	font-family: 'Bangers', cursive;
+	text-align: center;
+	font-size: 130px;
+	margin-top: 10px;
+
+}
+
+.main-button-container {
+	margin-top: 25px;
+
+}
