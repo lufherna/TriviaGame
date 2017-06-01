@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var unanswered = 0;
 	var correct = 0;
 	var incorrect = 0;
+	var counter = 30;
 
 	//function that'll start the program and initialize the start screen
 	function startScreen() {
@@ -12,8 +13,6 @@ $(document).ready(function(){
 	$(".mainArea").html(startScreen);
 }
 	startScreen();
-
-	$(".startButton").on("click", function(){
 
 		var q1 = {
 			question: "What is Batman's real identity?",
@@ -31,9 +30,43 @@ $(document).ready(function(){
 			incorrect: "Kandor"
 			}
 
+
+	$(".startButton").on("click", function(){
+
 			console.log("just checking if this is working")
+			$('.mainArea').hide();
+			$('body').html('<row class="container"><div class="mainPanel panel panel-info col-md-8"><div class="panel-heading"> Trivia Questions</div><div class="panel-body">Panel Content</div></div></row>')
+			timeCount();
+			generateGame();
 	})
 
+	function timeCount() {
+	theClock = setInterval(thirtySeconds, 1000);
+	function thirtySeconds() {
+		if (counter === 0) {
+			clearInterval(theClock);
+			generateLossDueToTimeOut();
+		}
+		if (counter > 0) {
+			counter--;
+		}
+		$(".timer").html(counter);
+	}
+}
 
+function generateGame() {
+	gameInfo = $('.mainPanel').append(q2.question); 
+}
+
+function resetQuiz() {
+	answered = 0;
+	unanswered = 0;
+	incorrect = 0;
+	correct = 0;
+	counter = 30;
+	timeCount();
+	generateGame();
+
+}
 
 })
