@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var unanswered = 0;
 	var correct = 0;
 	var incorrect = 0;
+	var aCounter = 0;
 	var counter = 30;
 
 	//function that'll start the program and initialize the start screen
@@ -20,54 +21,56 @@ $(document).ready(function(){
 			option1: "Matches Malone",
 			correct: "Bruce Wayne",
 			option2: "Alfred Pennyworth",
-			option3: "Wayne Bruce"
 			},{
 
 			question: "Where was Superman born?",
 			option1: "Draxam",
 			correct: "Krypton",
 			option2: "Earth",
-			option3: "Kandor"
 			}]
 
-
+	//start game event handler
 	$(".startButton").on("click", function(){
 
 			console.log("just checking if this is working")
 
 			$('.mainArea').hide();
-			$('body').html('<row class="container"><div class="mainPanel panel panel-info col-md-8"><div class="panel-heading"> Trivia Questions</div><div class="panel-body">Panel Content</div></div></row>')
+			$('body').html('<row class="container"><div class="panel panel-info col-md-8"><div class="panel-heading">Trivia Questions</div><div class="panel-body">Panel Content</div></div></row>');
+			$('.panel-body').html('<span class = "answers"></span>');
+			generateGame();
 		})
 
-	
-	function timeCount() {
-	theClock = setInterval(thirtySeconds, 1000);
-	function thirtySeconds() {
-		if (counter === 0) {
-			clearInterval(theClock);
-			}
-		if (counter > 0) {
-			counter--;
+		function generateGame() {
+			$('.panel-body').html(heroQuestions[aCounter].question);
+			$('.answers').html("<li><input type = 'radio' name='choiceRadio'>" + " " +
+				heroQuestions[aCounter].option1 + "</li><li><input type='radio' name='choiceRadio'>" + " " + 
+				heroQuestions[aCounter].option2 + "</li><li><input type='radio' name='choiceRadio' value = 'correct'>" + " " +
+				heroQuestions[aCounter].correct + "</li>");
 		}
-		$(".timer").html(counter);
-	}
-}
 
-function generateGame() {
-	gameInfo = $('.mainPanel').html(q2.question);
-	$(gameInfo).append() 
-}
+			function timeCount() {
+			theClock = setInterval(thirtySeconds, 1000);
+			function thirtySeconds() {
+				if (counter === 0) {
+					clearInterval(theClock);
+					}
+				if (counter > 0) {
+					counter--;
+				}
+				$(".timer").html(counter);
+			}
+		}
 
-function resetQuiz() {
-	answered = 0;
-	unanswered = 0;
-	incorrect = 0;
-	correct = 0;
-	counter = 30;
-	timeCount();
-	generateGame();
+		function resetQuiz() {
+			answered = 0;
+			unanswered = 0;
+			incorrect = 0;
+			correct = 0;
+			counter = 30;
+			timeCount();
+			generateGame();
 
-}
+		}
 
 	//function generateGame() {
 			//gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + "</p><p class='answer'>B. "+answerArray[questionCounter][1]+"</p><p class='answer'>C. "+answerArray[questionCounter][2]+"</p><p class='answer'>D. "+answerArray[questionCounter][3]+"</p>";
