@@ -14,39 +14,38 @@ $(document).ready(function(){
 }
 	startScreen();
 
-		var q1 = {
+		var heroQuestions = [
+			{
 			question: "What is Batman's real identity?",
-			incorrect: "Matches Malone",
+			option1: "Matches Malone",
 			correct: "Bruce Wayne",
-			incorrect: "Alfred Pennyworth",
-			incorrect: "Wayne Bruce"
-			}
+			option2: "Alfred Pennyworth",
+			option3: "Wayne Bruce"
+			},{
 
-		var q2 = {
 			question: "Where was Superman born?",
-			incorrect: "Draxam",
+			option1: "Draxam",
 			correct: "Krypton",
-			incorrect: "Earth",
-			incorrect: "Kandor"
-			}
+			option2: "Earth",
+			option3: "Kandor"
+			}]
 
 
 	$(".startButton").on("click", function(){
 
 			console.log("just checking if this is working")
+
 			$('.mainArea').hide();
 			$('body').html('<row class="container"><div class="mainPanel panel panel-info col-md-8"><div class="panel-heading"> Trivia Questions</div><div class="panel-body">Panel Content</div></div></row>')
-			timeCount();
-			generateGame();
-	})
+		})
 
+	
 	function timeCount() {
 	theClock = setInterval(thirtySeconds, 1000);
 	function thirtySeconds() {
 		if (counter === 0) {
 			clearInterval(theClock);
-			generateLossDueToTimeOut();
-		}
+			}
 		if (counter > 0) {
 			counter--;
 		}
@@ -55,7 +54,8 @@ $(document).ready(function(){
 }
 
 function generateGame() {
-	gameInfo = $('.mainPanel').append(q2.question); 
+	gameInfo = $('.mainPanel').html(q2.question);
+	$(gameInfo).append() 
 }
 
 function resetQuiz() {
@@ -68,5 +68,10 @@ function resetQuiz() {
 	generateGame();
 
 }
+
+	//function generateGame() {
+			//gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + "</p><p class='answer'>B. "+answerArray[questionCounter][1]+"</p><p class='answer'>C. "+answerArray[questionCounter][2]+"</p><p class='answer'>D. "+answerArray[questionCounter][3]+"</p>";
+			//$('body').html("<span>theClock</span>")
+		//}
 
 })
