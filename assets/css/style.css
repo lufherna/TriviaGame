@@ -22,6 +22,7 @@ body {
 	background-color: lightblue;
 	height: 500px;
 	display: hidden;
-	opacity: 0.3;
-	font-family: 'Bangers', cursive; ;
+	opacity: 0.5;
+	font-family: 'Bangers', cursive; 
+	text-align: center;
 }

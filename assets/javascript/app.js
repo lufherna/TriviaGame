@@ -43,33 +43,23 @@ $(document).ready(function(){
 
 
 		function generateGame() {
-			$('.panel-body').html(heroQuestions[aCounter].question);
+			$('.questionArea').html(heroQuestions[aCounter].question);
 			$('.answers').html("<li><input type = 'radio' name='choiceRadio'>" + " " +
 				heroQuestions[aCounter].option1 + "</li><li><input type='radio' name='choiceRadio'>" + " " + 
 				heroQuestions[aCounter].option2 + "</li><li><input type='radio' name='choiceRadio' value = 'correct'>" + " " +
 				heroQuestions[aCounter].correct + "</li>");
 		}
 
-		var elem = document.getElementById('some_div');
-
-		var timerId = setInterval(countdown, 1000);
+			var timerId = setInterval(countdown, 1000);
 
 			function countdown() {
 			  if (counter == 0) {
 			    clearTimeout(timerId);
 			    doSomething();
 			  } else {
-			    elem.innerHTML = counter + ' seconds remaining';
+			    timeLeft.innerHTML = counter + ' seconds remaining';
 			    counter--;
 			  }
-			}
-
-			function generateGame() {
-			$('.panel-body').html(heroQuestions[aCounter].question);
-			$('.answers').html("<li><input type = 'radio' name='choiceRadio'>" + " " +
-				heroQuestions[aCounter].option1 + "</li><li><input type='radio' name='choiceRadio'>" + " " + 
-				heroQuestions[aCounter].option2 + "</li><li><input type='radio' name='choiceRadio' value = 'correct'>" + " " +
-				heroQuestions[aCounter].correct + "</li>");
 			}
 
 			function resetQuiz() {
