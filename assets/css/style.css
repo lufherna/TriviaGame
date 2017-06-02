@@ -20,14 +20,28 @@ body {
 	margin: auto;
 	max-width: 70%;
 	background-color: lightblue;
-	height: 500px;
+	height: 100%;
 	opacity: 0.8;
 	font-family: 'Bangers', cursive; 
-	text-align: center;
+	
 }
 
 .questionArea p {
 	font-size: 30px;
+	text-align: center;
 
 }
+
+.questionArea h1 {
+	font-size: 60px;
+	text-align: center;
+
+}
+
+.answers {
+	list-style-type: none;
+
+}
+
+
 

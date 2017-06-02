@@ -17,7 +17,9 @@ $(document).ready(function(){
 	startScreen();
 
 		var heroQuestions = [
+
 			{
+
 			question: "What is Batman's real identity?",
 			option1: "Matches Malone",
 			correct: "Bruce Wayne",
@@ -25,10 +27,17 @@ $(document).ready(function(){
 			},{
 
 			question: "Where was Superman born?",
-			option1: "Draxam",
+			option1: "Daxam",
 			correct: "Krypton",
 			option2: "Earth",
-			}]
+			},{
+
+			question: "Who isn't part of the original Avengers?",
+			option1: "Thor",
+			correct: "Wolverine",
+			option2: "Iron Man",
+				]
+			}
 
 	//start game event handler
 	$(".startButton").on("click", function(){
@@ -37,17 +46,19 @@ $(document).ready(function(){
 			$('.mainArea').hide();
 			$('.questionArea').show();
 			$('.panel-body').append('<span class = "answers"></span>');
-			generateGame();
+			countdown();
 		})
 
 
+		for (var i = 0; i < heroQuestions.length; i++) {
 
 		function generateGame() {
 			$('.questionList').html(heroQuestions[aCounter].question);
 			$('.answers').html("<li><input type = 'radio' name='choiceRadio'>" + " " +
 				heroQuestions[aCounter].option1 + "</li><li><input type='radio' name='choiceRadio'>" + " " + 
 				heroQuestions[aCounter].option2 + "</li><li><input type='radio' name='choiceRadio' value = 'correct'>" + " " +
-				heroQuestions[aCounter].correct + "</li>");
+				heroQuestions[aCounter].correct + "</li>")
+			}
 		}
 
 
