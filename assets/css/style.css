@@ -21,8 +21,13 @@ body {
 	max-width: 70%;
 	background-color: lightblue;
 	height: 500px;
-	display: hidden;
-	opacity: 0.5;
+	opacity: 0.8;
 	font-family: 'Bangers', cursive; 
 	text-align: center;
 }
+
+.questionArea p {
+	font-size: 30px;
+
+}
+

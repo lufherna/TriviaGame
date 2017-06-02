@@ -37,26 +37,26 @@ $(document).ready(function(){
 			$('.mainArea').hide();
 			$('.questionArea').show();
 			$('.panel-body').append('<span class = "answers"></span>');
-			console.log(timeCount)
+			generateGame();
 		})
 
 
 
 		function generateGame() {
-			$('.questionArea').html(heroQuestions[aCounter].question);
+			$('.questionList').html(heroQuestions[aCounter].question);
 			$('.answers').html("<li><input type = 'radio' name='choiceRadio'>" + " " +
 				heroQuestions[aCounter].option1 + "</li><li><input type='radio' name='choiceRadio'>" + " " + 
 				heroQuestions[aCounter].option2 + "</li><li><input type='radio' name='choiceRadio' value = 'correct'>" + " " +
 				heroQuestions[aCounter].correct + "</li>");
 		}
 
+
 			var timerId = setInterval(countdown, 1000);
 
 			function countdown() {
 			  if (counter == 0) {
 			    clearTimeout(timerId);
-			    doSomething();
-			  } else {
+			     } else {
 			    timeLeft.innerHTML = counter + ' seconds remaining';
 			    counter--;
 			  }
