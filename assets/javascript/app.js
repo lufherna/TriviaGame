@@ -12,6 +12,7 @@ $(document).ready(function(){
 		startScreen = "<p class='startButton text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' n\
 		href='#' role='button'>Start Quiz</a></p>";
 	$(".mainArea").html(startScreen);
+	$(".questionArea").hide();
 }
 	startScreen();
 
@@ -33,12 +34,13 @@ $(document).ready(function(){
 	$(".startButton").on("click", function(){
 
 			console.log("just checking if this is working")
-
 			$('.mainArea').hide();
-			$('body').html('<row class="container"><div class="panel panel-info col-md-8"><div class="panel-heading">Trivia Questions</div><div class="panel-body">Panel Content</div></div></row>');
-			$('.panel-body').html('<span class = "answers"></span>');
-			generateGame();
+			$('.questionArea').show();
+			$('.panel-body').append('<span class = "answers"></span>');
+			console.log(timeCount)
 		})
+
+
 
 		function generateGame() {
 			$('.panel-body').html(heroQuestions[aCounter].question);
@@ -48,29 +50,38 @@ $(document).ready(function(){
 				heroQuestions[aCounter].correct + "</li>");
 		}
 
-			function timeCount() {
-			theClock = setInterval(thirtySeconds, 1000);
-			function thirtySeconds() {
-				if (counter === 0) {
-					clearInterval(theClock);
-					}
-				if (counter > 0) {
-					counter--;
-				}
-				$(".timer").html(counter);
+		var elem = document.getElementById('some_div');
+
+		var timerId = setInterval(countdown, 1000);
+
+			function countdown() {
+			  if (counter == 0) {
+			    clearTimeout(timerId);
+			    doSomething();
+			  } else {
+			    elem.innerHTML = counter + ' seconds remaining';
+			    counter--;
+			  }
 			}
-		}
 
-		function resetQuiz() {
-			answered = 0;
-			unanswered = 0;
-			incorrect = 0;
-			correct = 0;
-			counter = 30;
-			timeCount();
-			generateGame();
+			function generateGame() {
+			$('.panel-body').html(heroQuestions[aCounter].question);
+			$('.answers').html("<li><input type = 'radio' name='choiceRadio'>" + " " +
+				heroQuestions[aCounter].option1 + "</li><li><input type='radio' name='choiceRadio'>" + " " + 
+				heroQuestions[aCounter].option2 + "</li><li><input type='radio' name='choiceRadio' value = 'correct'>" + " " +
+				heroQuestions[aCounter].correct + "</li>");
+			}
 
-		}
+			function resetQuiz() {
+				answered = 0;
+				unanswered = 0;
+				incorrect = 0;
+				correct = 0;
+				counter = 30;
+				timeCount();
+				generateGame();
+
+			}
 
 	//function generateGame() {
 			//gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + "</p><p class='answer'>B. "+answerArray[questionCounter][1]+"</p><p class='answer'>C. "+answerArray[questionCounter][2]+"</p><p class='answer'>D. "+answerArray[questionCounter][3]+"</p>";

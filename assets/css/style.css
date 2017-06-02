@@ -15,3 +15,13 @@ body {
 	margin-top: 25px;
 
 }
+
+.questionArea {
+	margin: auto;
+	max-width: 70%;
+	background-color: lightblue;
+	height: 500px;
+	display: hidden;
+	opacity: 0.3;
+	font-family: 'Bangers', cursive; ;
+}
