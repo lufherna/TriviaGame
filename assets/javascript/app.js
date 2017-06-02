@@ -50,6 +50,7 @@ $(document).ready(function(){
 			$('.questionArea').show();
 			$('.panel-body').append('<span class = "answers"></span>');
 			countdown();
+			generateGame()
 		})
 
 		// want to use a for loop to create the question list for the main div (this isn'working properly)
