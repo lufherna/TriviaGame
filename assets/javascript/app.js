@@ -16,6 +16,8 @@ $(document).ready(function(){
 }
 	startScreen();
 
+		//array of objects
+
 		var heroQuestions = [
 
 			{
@@ -36,8 +38,9 @@ $(document).ready(function(){
 			option1: "Thor",
 			correct: "Wolverine",
 			option2: "Iron Man",
-				]
 			}
+
+			]
 
 	//start game event handler
 	$(".startButton").on("click", function(){
@@ -49,6 +52,7 @@ $(document).ready(function(){
 			countdown();
 		})
 
+		// want to use a for loop to create the question list for the main div (this isn'working properly)
 
 		for (var i = 0; i < heroQuestions.length; i++) {
 
